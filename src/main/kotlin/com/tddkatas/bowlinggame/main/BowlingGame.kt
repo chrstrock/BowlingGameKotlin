@@ -14,11 +14,11 @@ class BowlingGame {
         repeat(10) {
             if(isStrike(frameIndex)) // strike
             {
-                score += 10 + rolls[frameIndex + 1] + rolls[frameIndex + 2]
+                score += 10 + strikeBonus(frameIndex)
                 frameIndex++
             }
             else if(isSpare(frameIndex)){
-                score += 10 + rolls[frameIndex+2]
+                score += 10 + spareBonus(frameIndex)
                 frameIndex+=2
             }
             else {
@@ -28,6 +28,10 @@ class BowlingGame {
         }
         return score
     }
+
+    private fun strikeBonus(frameIndex: Int):Int =  rolls[frameIndex + 1] + spareBonus(frameIndex)
+
+    private fun spareBonus(frameIndex: Int): Int = rolls[frameIndex + 2]
 
     private fun isStrike(frameIndex: Int): Boolean = rolls[frameIndex] == 10
 
