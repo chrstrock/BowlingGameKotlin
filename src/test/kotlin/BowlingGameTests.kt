@@ -15,6 +15,10 @@ class BowlingGameTests {
             game.roll(pins);
         }
     }
+    private fun rollSpare() {
+        game.roll(5);
+        game.roll(5);
+    }
     @Test
     fun gutterBallTest(){
         rollMany(20, 0)
@@ -29,10 +33,20 @@ class BowlingGameTests {
 
     @Test
     fun testOneSpare(){
-        game.roll(5);
-        game.roll(5);
+        rollSpare()
         game.roll(3);
         rollMany(17,0);
         Assertions.assertEquals(16, game.score())
+    }
+
+
+
+    @Test
+    fun testOneStrike(){
+        game.roll(10);
+        game.roll(3);
+        game.roll(4);
+        rollMany(16, 0)
+        Assertions.assertEquals(24, game.score())
     }
 }
