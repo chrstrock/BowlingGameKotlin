@@ -12,7 +12,7 @@ class BowlingGame {
         var score = 0
         var frameIndex = 0
         repeat(10) {
-            if(rolls[frameIndex] == 10) // strike
+            if(isStrike(frameIndex)) // strike
             {
                 score += 10 + rolls[frameIndex + 1] + rolls[frameIndex + 2]
                 frameIndex++
