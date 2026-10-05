@@ -8,16 +8,16 @@ class BowlingGameTests {
     private lateinit var game: BowlingGame
     @BeforeEach
     fun setUp() {
-       game = BowlingGame();
+       game = BowlingGame()
     }
     private fun rollMany(n: Int, pins: Int) {
         repeat(n) {
-            game.roll(pins);
+            game.roll(pins)
         }
     }
     private fun rollSpare() {
-        game.roll(5);
-        game.roll(5);
+        game.roll(5)
+        game.roll(5)
     }
     @Test
     fun gutterBallTest(){
@@ -34,8 +34,8 @@ class BowlingGameTests {
     @Test
     fun testOneSpare(){
         rollSpare()
-        game.roll(3);
-        rollMany(17,0);
+        game.roll(3)
+        rollMany(17,0)
         Assertions.assertEquals(16, game.score())
     }
 
@@ -43,10 +43,14 @@ class BowlingGameTests {
 
     @Test
     fun testOneStrike(){
-        game.roll(10);
-        game.roll(3);
-        game.roll(4);
+        rollStrike()
+        game.roll(3)
+        game.roll(4)
         rollMany(16, 0)
         Assertions.assertEquals(24, game.score())
+    }
+
+    private fun rollStrike() {
+        game.roll(10)
     }
 }
