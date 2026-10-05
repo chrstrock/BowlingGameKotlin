@@ -1,0 +1,6 @@
+1.  20 gutter balls return score of zero.
+2.  20 rolls of 1 returns 20.
+3.  10 pins knocked down in each frame returns score of 300
+4.  Strike scores 10 plus next two rolls
+5.  Spare scores 10 plus next roll
+6.
